@@ -133,7 +133,7 @@ tuned to clear WCAG AA throughout.
 
 - **Started from the brief, not the keyboard.** I clarified the few decisions that actually
   shape the deliverable (framework, persistence, language, deployment) before writing any code,
-  and wrote a short design spec (`docs/superpowers/specs/`).
+  and wrote a short design spec (`docs/design-spec.md`).
 - **Verified the brand instead of guessing it.** Rather than eyeball the colors, I extracted the
   real design tokens from the live Guhr site's CSS and the logo SVG, so the match is exact.
 - **AI-assisted with [Claude Code](https://claude.com/claude-code) (Opus).** I used it to research
@@ -147,9 +147,8 @@ tuned to clear WCAG AA throughout.
 
 ## How long it took
 
-Roughly **a single focused half-day** of AI-assisted work end to end: ~30 min on
-requirements + brand research, the bulk on implementation, and the remainder on review,
-tests, and this write-up.
+Roughly **4–5 hours** in one focused session: ~30 min on requirements + brand research,
+the bulk on implementation, and the remainder on review, tests, and this write-up.
 
 ## What I'd add with more time
 
