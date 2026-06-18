@@ -1,26 +1,93 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * Guhr Steuerberatung brand theme — tokens verified from the live
+ * guhr-steuerberatung.de Elementor CSS + Logo.svg. Single gold accent on white,
+ * Lato type, soft 10px-radius cards, no gradients.
+ */
+@theme {
+  --color-brand: #d0b578;
+  --color-brand-dark: #c4a55f;
+  --color-brand-soft: #f4eee1;
+  --color-ink: #000000;
+  --color-slate: #5b6165;
+  --color-body: #6b6b6b;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f5f5f5;
+  --color-surface-accent: #f2f2f2;
+  --color-line: #dfdfdf;
+  --color-line-light: #e5e5e5;
+  --color-line-mid: #d1d1d1;
+  --color-muted: #6e6e6e;
+  --color-success: #15be7d;
+  --color-peach: #ffbc7d;
+  /* Functional brick-red for "urgent", validation errors, and destructive actions. */
+  --color-danger: #c0563b;
+
+  --radius-sm: 5px;
+  --radius-card: 10px;
+  --radius-pill: 25px;
+
+  --shadow-card: 0 4px 20px 0 rgba(0, 0, 0, 0.1);
+  --shadow-elevated: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
+/* Font family references the runtime variable set by next/font on <html>. */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-lato), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--color-surface-alt);
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    color: var(--color-ink);
+  }
+  ::selection {
+    background-color: var(--color-brand);
+    color: #1a1a1a;
+  }
+  /* Keyboard focus ring — slate, for adequate contrast (gold is too light on white). */
+  :focus-visible {
+    outline: 2px solid var(--color-slate);
+    outline-offset: 2px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Thin, on-brand scrollbars for the horizontal board + column lists. */
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-line-mid) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: var(--color-line-mid);
+    border-radius: 9999px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: var(--color-muted);
+    background-clip: content-box;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
 }
